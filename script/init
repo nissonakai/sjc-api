@@ -2,6 +2,6 @@ cp .env.sample .env
 
 docker-compose build
 
-docker-compose run --rm web bundle exec rails new . --force --database=postgresql --skip-turbolinks --skip-test
+docker-compose run --rm web bundle exec rails new . --api --force --database=postgresql --skip-test
 
 cp -f template/database.yml config/database.yml

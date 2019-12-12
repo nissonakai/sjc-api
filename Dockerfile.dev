@@ -1,7 +1,6 @@
 FROM ruby:2.6.3-alpine
 
 ENV LANG C.UTF-8
-ENV ROOT 3000
 
 ENV APP_ROOT /usr/src/app
 WORKDIR $APP_ROOT
@@ -28,9 +27,9 @@ RUN \
   chmod uog+r /etc/gemrc && \
   bundle config --global jobs 4 && \
   bundle install && \
-  rm -rf ~/.gem
-
+  rm -rf ~/.gem && \
+  rm -f tmp/pids/server.pid
 
 COPY . $APP_ROOT
 
-CMD ["bundle", "exec", "rails", "s", "puma", "-b", "0.0.0.0"]
+EXPOSE 3001 
