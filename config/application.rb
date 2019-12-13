@@ -26,10 +26,10 @@ module App
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins "*"
+        origins "localhost:3000", "https://suitable-job-checker-nisso.netlify.com/"
         resource "*",
           headers: :any,
-          methods: [:get, :post, :options, :head]
+          methods: [:get, :post, :put, :delete, :options, :head]
       end
     end
     # Settings in config/environments/* take precedence over those specified here.
