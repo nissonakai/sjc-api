@@ -4,7 +4,7 @@ module Api
             before_action :set_question, only: [:show, :update, :destroy]
 
             def index
-                questions = Question.order(created_at: :desc)
+                questions = Question.all
                 render json: { status: "SUCCESS", message: "Loaded questions", data: questions }
             end
 
