@@ -30,7 +30,7 @@ module App
         resource "*",
           headers: :any,
           expose: ['access-token', 'uid'],
-          methods: [:get, :post, :put, :delete, :options, :head]
+          methods: [:get, :post, :patch, :delete, :options, :head]
       end
     end
     # Settings in config/environments/* take precedence over those specified here.
