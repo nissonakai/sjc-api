@@ -29,7 +29,7 @@ module App
         origins "localhost:3000", "https://suitable-job-checker-nisso.netlify.com"
         resource "*",
           headers: :any,
-          expose: ['access-token', 'uid' ],
+          expose: ['access-token', 'uid'],
           methods: [:get, :post, :patch, :delete, :options, :head]
       end
     end
