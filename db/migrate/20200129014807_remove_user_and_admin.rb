@@ -1,6 +1,0 @@
-class RemoveUserAndAdmin < ActiveRecord::Migration[5.2]
-  def change
-    drop_table :users
-    drop_table :admins
-  end
-end
