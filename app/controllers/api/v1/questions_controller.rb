@@ -4,7 +4,8 @@ module Api
             before_action :set_question, only: [:show, :update, :destroy]
 
             def index
-                questions = Question.all
+                survey = Survey.find_by(selected: true)
+                questions = Question.where(survey_id: survey.id)
                 render json: { status: "SUCCESS", message: "Loaded questions", data: questions }
             end
 
@@ -41,7 +42,7 @@ module Api
             end
       
             def question_params
-              params.require(:question).permit(:title, :red, :blue)
+              params.require(:question).permit(:title, :red, :blue, :survey_id)
             end
         end
     end

@@ -26,7 +26,7 @@ module App
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins "localhost:3000", "https://suitable-job-checker-nisso.netlify.com"
+        origins "http://localhost:3000", "https://suitable-job-checker-nisso.netlify.com"
         resource "*",
           headers: :any,
           expose: ['access-token', 'uid'],
