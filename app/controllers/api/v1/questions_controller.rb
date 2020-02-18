@@ -1,16 +1,16 @@
 module Api
     module V1
         class QuestionsController < ApplicationController
-            before_action :set_question, only: [:show, :update, :destroy]
+            before_action :set_question, only: [:update, :destroy]
 
             def index
-                survey = Survey.find_by(selected: true)
-                questions = Question.where(survey_id: survey.id)
+                questions = Question.all
                 render json: { status: "SUCCESS", message: "Loaded questions", data: questions }
             end
 
             def show
-                render json: { status: "SUCCESS", message: "Loaded the question", data: @question }
+                questions = Question.where(survey_id: params[:id])
+                render json: { status: "SUCCESS", message: "Loaded questions", data: questions }
             end
 
             def create

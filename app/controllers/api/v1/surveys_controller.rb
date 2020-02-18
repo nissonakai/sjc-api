@@ -1,7 +1,7 @@
 module Api
   module V1
     class SurveysController < ApplicationController
-      before_action :set_survey, only: [:show, :update, :destroy]
+      before_action :set_survey, only: [:show, :update, :update_selected, :destroy]
 
       def index
         surveys = Survey.all
@@ -42,19 +42,20 @@ module Api
         render json: { status: 'SUCCESS', message: 'Not updated', data: @survey.errors }
       end
     end
-      private
 
-      def set_survey
-        @survey = Survey.find(params[:id])
-      end
+    private
 
-      def survey_params
-        params.require(:survey).permit(:name)
-      end
+    def set_survey
+      @survey = Survey.find(params[:id])
+    end
 
-      def selected_params
-        params.require(:survey).permit(:selected)
-      end
+    def survey_params
+      params.require(:survey).permit(:name)
+    end
+
+    def selected_params
+      params.require(:survey).permit(:selected)
+    end
 
     end    
   end
