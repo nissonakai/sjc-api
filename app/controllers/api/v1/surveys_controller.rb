@@ -31,7 +31,7 @@ module Api
         if @survey.update(survey_params)
           render json: { status: 'SUCCESS', message: 'Updated the post', data: @survey }
         else
-          render json: { status: 'SUCCESS', message: 'Not updated', data: @survey.errors }
+          render json: { status: 'ERROR', message: 'Not updated', data: @survey.errors }
         end
     end
 
@@ -39,7 +39,7 @@ module Api
       if Survey.update_all(selected: false) && @survey.update(selected_params)
         render json: { status: 'SUCCESS', message: 'Updated the post', data: @survey }
       else
-        render json: { status: 'SUCCESS', message: 'Not updated', data: @survey.errors }
+        render json: { status: 'ERROR', message: 'Not updated', data: @survey.errors }
       end
     end
 

@@ -31,7 +31,7 @@ module Api
                 if @question.update(question_params)
                   render json: { status: 'SUCCESS', message: 'Updated the post', data: @question }
                 else
-                  render json: { status: 'SUCCESS', message: 'Not updated', data: @question.errors }
+                  render json: { status: 'ERROR', message: 'Not updated', data: @question.errors }
                 end
             end
         
