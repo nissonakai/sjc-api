@@ -62,7 +62,7 @@ Rails.application.configure do
     domain: 'herokuapp.com',
     address: 'smtp.sendgrid.net',
     port: 587,
-    authentication: plain,
+    authentication: :plain,
     enable_starttls_auto: true
   }
   config.action_mailer.perform_caching = false
