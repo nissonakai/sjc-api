@@ -27,14 +27,6 @@ module Api
         render json: { status: 'SUCCESS', message: 'Deleted the post', data: @survey }
       end
 
-    def update
-        if @survey.update(survey_params)
-          render json: { status: 'SUCCESS', message: 'Updated the post', data: @survey }
-        else
-          render json: { status: 'ERROR', message: 'Not updated', data: @survey.errors }
-        end
-    end
-
     def update_selected
       if Survey.update_all(selected: false) && @survey.update(selected_params)
         render json: { status: 'SUCCESS', message: 'Updated the post', data: @survey }
