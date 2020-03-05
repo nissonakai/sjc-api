@@ -56,7 +56,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host:
     'https://suitable-job-check-api.herokuapp.com/'
   }
-  config.action_mailer.smpt_setting = {
+  config.action_mailer.smtp_settings = {
     user_name: ENV['SENDGRID_USERNAME'],
     password: ENV['SENDGRID_PASSWORD'],
     domain: 'herokuapp.com',
