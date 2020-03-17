@@ -11,6 +11,7 @@ gem 'rack-cors'
 gem 'devise'
 gem 'devise-i18n'
 gem 'mechanize'
+gem 'mail-iso-2022-jp'
 
 group :development, :test do
   gem 'pry-rails'
