@@ -1,5 +1,5 @@
 class ResultMailer < ApplicationMailer
-    default from: '工場求人ナビ', charset: 'ISO-2022-JP'
+    default from: '"工場求人ナビ" <noreply@717450.com>'
 
     def welcome_email(email, age, job, wage, sex)
         @email = email
@@ -7,6 +7,6 @@ class ResultMailer < ApplicationMailer
         @job = job
         @wage = wage
         @sex = sex
-        mail(to: @email, subject: '工場求人ナビ診断結果テスト')
+        mail(to: @email, subject: '工場求人ナビ')
     end
 end

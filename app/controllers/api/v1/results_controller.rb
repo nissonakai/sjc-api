@@ -5,7 +5,7 @@ module Api
                 result_params = params[:result].permit(:email, :age, :job, :wage, :sex)
                 result = Result.new(result_params)
                 if result.email
-                    ResultMailer.welcome_email(result.email, result.age, result.job, result.wage, result.sex).deliver_now
+                    ResultMailer.welcome_email(result.email, result.age, result.job, result.wage, result.sex).deliver
                     redirect_to '/api/v1/questions'
                 else
                     render json: { status: "ERROR" }
