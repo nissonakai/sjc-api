@@ -1,11 +1,12 @@
 class ResultMailer < ApplicationMailer
-    default from: 'test@example.com'
+    default from: '工場求人ナビ'
 
-    def welcome_email(email, age, job, wage)
+    def welcome_email(email, age, job, wage, sex)
         @email = email
         @age = age
         @job = job
         @wage = wage
-        mail(to: @email, subject: 'result_test')
+        @sex = sex
+        mail(to: @email, subject: '工場求人ナビ診断結果テスト')
     end
 end

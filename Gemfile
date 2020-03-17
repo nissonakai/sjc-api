@@ -10,6 +10,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rack-cors'
 gem 'devise'
 gem 'devise-i18n'
+gem 'mechanize'
 
 group :development, :test do
   gem 'pry-rails'

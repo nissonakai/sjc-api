@@ -9,6 +9,7 @@ Rails.application.routes.draw do
         end
       end
       post '/results', to: 'results#send'
+      post '/recommends', to: 'recommend#recommend'
     end
   end
 end
