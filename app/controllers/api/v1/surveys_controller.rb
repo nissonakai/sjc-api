@@ -1,7 +1,7 @@
 module Api
   module V1
     class SurveysController < ApplicationController
-      before_action :set_survey, only: [:show, :update, :update_selected, :destroy]
+      before_action :set_survey, only: [:show, :update_selected, :destroy]
 
       def index
         surveys = Survey.all
@@ -9,8 +9,7 @@ module Api
       end
     
       def show
-        questions = questions.where(survey_id: @survey.id)
-        render json: { status: "SUCCESS", message: "Loaded questions", data: questions }
+        render json: { status: "SUCCESS", message: "Loaded questions", data: @survey.questions }
       end
     
       def create

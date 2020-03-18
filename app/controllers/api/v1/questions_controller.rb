@@ -42,7 +42,7 @@ module Api
             end
       
             def question_params
-              params.require(:question).permit(:title, :red, :blue, :survey_id)
+              params.require(:question).permit(:title, :category, :survey_id)
             end
         end
     end
