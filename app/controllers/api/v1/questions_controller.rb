@@ -23,22 +23,22 @@ module Api
             end
 
             def destroy
-                @question.destroy
-                render json: { status: 'SUCCESS', message: 'Deleted the post', data: @question }
+                question.destroy
+                render json: { status: 'SUCCESS', message: 'Deleted the post', data: question }
             end
 
             def update
-                if @question.update(question_params)
-                  render json: { status: 'SUCCESS', message: 'Updated the post', data: @question }
+                if question.update(question_params)
+                  render json: { status: 'SUCCESS', message: 'Updated the post', data: question }
                 else
-                  render json: { status: 'ERROR', message: 'Not updated', data: @question.errors }
+                  render json: { status: 'ERROR', message: 'Not updated', data: question.errors }
                 end
             end
         
             private
       
             def set_question
-              @question = Question.find(params[:id])
+              question = Question.find(params[:id])
             end
       
             def question_params
