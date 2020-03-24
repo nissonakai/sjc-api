@@ -9,7 +9,7 @@ module Api
       end
     
       def show
-        render json: { status: "SUCCESS", message: "Loaded questions", data: survey.questions }
+        render json: { status: "SUCCESS", message: "Loaded questions", data: @survey.questions }
       end
     
       def create
@@ -22,22 +22,22 @@ module Api
       end
     
       def destroy
-        survey.destroy
-        render json: { status: 'SUCCESS', message: 'Deleted the post', data: survey }
+        @survey.destroy
+        render json: { status: 'SUCCESS', message: 'Deleted the post', data: @survey }
       end
 
     def update_selected
-      if Survey.update_all(selected: false) && survey.update(selected_params)
-        render json: { status: 'SUCCESS', message: 'Updated the post', data: survey }
+      if Survey.update_all(selected: false) && @survey.update(selected_params)
+        render json: { status: 'SUCCESS', message: 'Updated the post', data: @survey }
       else
-        render json: { status: 'ERROR', message: 'Not updated', data: survey.errors }
+        render json: { status: 'ERROR', message: 'Not updated', data: @survey.errors }
       end
     end
 
     private
 
     def set_survey
-      survey = Survey.find(params[:id])
+      @survey = Survey.find(params[:id])
     end
 
     def survey_params
