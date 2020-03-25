@@ -1,0 +1,14 @@
+<%= @email %>様、工場求人ナビへようこそ。
+
+工場求人ナビへのサインアップが成功しました。
+your age is: <%= @age %>.
+your job is: <%= @job %>.
+your wage is: <%= @wage %>.
+your sex is: <%= @sex %>.
+your answers is : 
+<% @answers.split("/").each do |answer| %>
+<%= answer %>
+<% end %>
+your result_title is : <%= @result_title %>
+
+ご入会ありがとうございます。どうぞお楽しみくださいませ。

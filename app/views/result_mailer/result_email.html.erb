@@ -11,6 +11,11 @@
       your job is: <%= @job %>.<br>
       your wage is: <%= @wage %>.<br>
       your sex is: <%= @sex %>.<br>
+      your answers is : <br>
+      <% @answers.split("/").each do |answer| %>
+        <%= answer %><br>
+      <% end %>
+      your result_title is : <%= @result_title %>
     </p>
     <p>ご入会ありがとうございます。どうぞお楽しみくださいませ。</p>
   </body>
