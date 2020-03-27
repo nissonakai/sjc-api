@@ -11,6 +11,8 @@
       your job is: <%= @job %>.<br>
       your wage is: <%= @wage %>.<br>
       your sex is: <%= @sex %>.<br>
+      your place is: <%= @place %>.<br>
+      your dormitory is: <%= @dormitory ? "寮あり" : "寮なし" %>.<br>
       your answers is : <br>
       <% @answers.split("/").each do |answer| %>
         <%= answer %><br>
