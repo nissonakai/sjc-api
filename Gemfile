@@ -9,7 +9,7 @@ gem 'puma', '~> 3.11'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rack-cors'
 gem 'mechanize'
-gem 'active_hash'
+gem 'rails_same_site_cookie'
 
 group :development, :test do
   gem 'pry-rails'

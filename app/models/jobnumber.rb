@@ -1,5 +1,5 @@
 class Jobnumber < ApplicationRecord
-    validates :number, presence: true, length: { is: 6 }
+    validates :number, presence: true, length: { is: 6 }, uniqueness:  {scope: [:category, :area_id]}
     validates :category, presence: true, numericality: { only_integer: true, less_than_or_equal_to: 4 }
     validate :valid_number?
     validate :url_exist?
