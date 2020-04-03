@@ -1,24 +1,16 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
-    <h1><%= @email %>様、工場求人ナビへようこそ。</h1>
-      <p>
-      工場求人ナビへのサインアップが成功しました。<br>
-      your age is: <%= @age %>.<br>
-      your job is: <%= @job %>.<br>
-      your wage is: <%= @wage %>.<br>
-      your sex is: <%= @sex %>.<br>
-      your place is: <%= @place %>.<br>
-      your dormitory is: <%= @dormitory ? "寮あり" : "寮なし" %>.<br>
-      your answers is : <br>
+<div style="background-color: #fff; margin: 1em">
+    <p>結果<br><br>
+      アドレス <%= @email %><br>
+      年齢 <%= @age %><br>
+      職業 <%= @job != "" ? @job : "回答なし" %><br>
+      年収 <%= @wage != "" ? @wage : "回答なし" %><br>
+      性別 <%= @sex == 1 ? "男性" : @sex == 2 ? "女性" : "答えない" %><br>
+      居住している都道府県 <%= @prefecture_id %><br>
+      寮の希望 <%= @dormitory ? "寮あり" : "寮なし" %><br>
+      診断テストの結果 <br>
       <% @answers.split("/").each do |answer| %>
         <%= answer %><br>
       <% end %>
-      your result_title is : <%= @result_title %>
+      診断タイプ <%= @result_title %>
     </p>
-    <p>ご入会ありがとうございます。どうぞお楽しみくださいませ。</p>
-  </body>
-</html>
+</div>
