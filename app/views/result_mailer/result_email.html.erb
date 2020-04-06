@@ -1,16 +1,16 @@
 <div style="background-color: #fff; margin: 1em">
     <p>結果<br><br>
-      アドレス <%= @email %><br>
-      年齢 <%= @age %><br>
-      職業 <%= @job != "" ? @job : "回答なし" %><br>
-      年収 <%= @wage != "" ? @wage : "回答なし" %><br>
-      性別 <%= @sex == 1 ? "男性" : @sex == 2 ? "女性" : "答えない" %><br>
-      居住している都道府県 <%= @prefecture_id %><br>
-      寮の希望 <%= @dormitory ? "寮あり" : "寮なし" %><br>
+      アドレス <%= @result.email %><br>
+      年齢 <%= @result.age %><br>
+      職業 <%= @result.job != "" ? @result.job : "回答なし" %><br>
+      年収 <%= @result.wage != "" ? @result.wage : "回答なし" %><br>
+      性別 <%= @result.sex == 1 ? "男性" : @result.sex == 2 ? "女性" : "答えない" %><br>
+      居住している都道府県 <%= @result.prefecture_id %><br>
+      寮の希望 <%= @result.dormitory ? "寮あり" : "寮なし" %><br>
       診断テストの結果 <br>
-      <% @answers.split("/").each do |answer| %>
+      <% @result.answers.split("/").each do |answer| %>
         <%= answer %><br>
       <% end %>
-      診断タイプ <%= @result_title %>
+      診断タイプ <%= @result.result_title %>
     </p>
 </div>

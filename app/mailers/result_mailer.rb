@@ -2,15 +2,12 @@ class ResultMailer < ApplicationMailer
     default from: '"工場求人ナビ 適職診断テスト" <noreply@717450.com>'
 
     def result_email(result)
-        @email = result.email
-        @age = result.age
-        @job = result.job
-        @wage = result.wage
-        @sex = result.sex
-        @prefecture_id = result.prefecture_id
-        @dormitory = result.dormitory
-        @answers = result.answers
-        @result_title = result.result_title
-        mail(to: @email, subject: '工場求人ナビ')
+        @result = result
+        mail(to: "s-nakai@nisso.co.jp", subject: '工場求人ナビ')
+    end
+
+    def recommend_email(result)
+        @result = result
+        mail(to: @result.email, subject: '適職診断テスト結果のお知らせ 工場求人ナビ')
     end
 end

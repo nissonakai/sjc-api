@@ -1,13 +1,13 @@
 結果
-アドレス <%= @email %>
-年齢 <%= @age %>
-職業 <%= @job != "" ? @job : "回答なし" %>
-年収 <%= @wage != "" ? @wage : "回答なし" %>
-性別 <%= @sex == "1" ? "男性" : @sex == "2" ? "女性" : "答えない" %>
-居住している都道府県 <%= @prefecture_id %>
-寮の希望 <%= @dormitory ? "寮あり" : "寮なし" %>
+アドレス <%= @result.email %>
+年齢 <%= @result.age %>
+職業 <%= @result.job != "" ? @result.job : "回答なし" %>
+年収 <%= @result.wage != "" ? @result.wage : "回答なし" %>
+性別 <%= @result.sex == "1" ? "男性" : @result.sex == "2" ? "女性" : "答えない" %>
+居住している都道府県 <%= @result.prefecture_id %>
+寮の希望 <%= @result.dormitory ? "寮あり" : "寮なし" %>
 診断テストの結果 
-<% @answers.split("/").each do |answer| %>
+<% @result.answers.split("/").each do |answer| %>
 <%= answer %>
 <% end %>
-診断タイプ <%= @result_title %>
+診断タイプ <%= @result.result_title %>

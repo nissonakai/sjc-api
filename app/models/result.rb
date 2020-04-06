@@ -1,23 +1,17 @@
 class Result
     include ActiveModel::Model
-    attr_accessor :email, :age, :job, :wage, :sex, :prefecture_id, :dormitory, :answers, :result_title, :recommend
+    attr_accessor :email, :age, :job, :wage, :sex, :prefecture_id, :dormitory, :answers, :result_id, :result_title, :recommend
 
-    def area_category
-        if prefecture_id <= 7
-            return 1
-        elsif prefecture_id <= 14
-            return 2
-        elsif prefecture_id <= 20
-            return 3
-        elsif prefecture_id <= 24
-            return 4
-        elsif prefecture_id <= 30
-            return 5
-        elsif prefecture_id <= 39
-            return 6
-        else
-            return 7
-        end
+    def area_id
+        return dormitory ? 0 : Prefecture.find(prefecture_id).area_id
+    end
+
+    def area_name
+        return Area.find(area_id).name 
+    end
+
+    def area_url
+        return "https://www.717450.net/search/result?category=#{Area.find(area_id).param}&disp_type=1"
     end
 
     def scrape_data(list)

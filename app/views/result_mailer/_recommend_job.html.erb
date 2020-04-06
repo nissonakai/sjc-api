@@ -1,0 +1,38 @@
+<table border="0" cellpadding="0" cellspacing="0" align="left" class="force-row" style="width: 100%;">
+    <tr>
+        <td class="col" valign="top" style="padding-left:12px;padding-right:12px;padding-top:18px;padding-bottom:12px">
+            <table border="0" cellpadding="0" cellspacing="0" class="img-wrapper">
+                <tr>
+                    <% job_id = recommend_job[:page_link].gsub("https://www.717450.net/search/detail/", "").gsub(".html", "") %>
+                    <td style="padding-bottom:18px"><img src="<%= recommend_job[:image_path] %>" border="0" alt="<%= job_id %>_image" width="168" height="110" hspace="0" vspace="0" style="max-width:100%; " class="image"></td>
+                </tr>
+            </table>
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td class="subtitle" style="font-family:Helvetica, Arial, sans-serif;font-size:16px;line-height:22px;font-weight:600;padding-bottom:6px">
+                        <a href="<%= recommend_job[:page_link] %>" style="color:#2469A0;text-decoration:none"><%= recommend_job[:title] %></a>
+                    </td>
+                </tr>
+            </table>
+            <div class="col-copy" style="font-family:Helvetica, Arial, sans-serif;font-size:13px;line-height:20px;text-align:left;color:#333333;margin-bottom: 1rem;">
+                <div style="margin-bottom: .3rem;">
+                    <span style="color:#ff9001;font-weight:bold;"><%= recommend_job[:wage][0] %><br><%= recommend_job[:wage][1] %></span>
+                </div>
+                <div style="margin-bottom: .3rem;">
+                    【勤務地】<%= recommend_job[:location] %><br>
+                    【作業内容】<%= recommend_job[:content] %><br>
+                    【シフト】<%= recommend_job[:shift] %> 【休日】<%= recommend_job[:holiday] %><br>
+                </div>
+                <div style="margin-bottom: .3rem;">
+                    <span style="font-weight:bold;">
+                        ★<%= recommend_job[:points][0] %><br>
+                        ★<%= recommend_job[:points][1] %>
+                    </span>
+                </div>
+                <a href="<%= recommend_job[:page_link] %>" key="<%= job_id %>">
+                    <span style="display: inline-block !important; border-radius:3px; background-color: #ff9001; color: #fff; width: 200px; padding: 10px; text-align: center; box-shadow: 10px;text-decoration: none !important;">詳細はコチラ</span>
+                </a><br>
+            </div>
+        </td>
+    </tr>
+</table>
