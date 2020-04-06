@@ -5,7 +5,7 @@ module Api
                 @result = Result.new(result_params)
                 if @result.email
                     ResultMailer.result_email(@result).deliver
-                    @result.scrape_data(Jobnumber.number_list(@result.result_title, @result.area_id))
+                    @result.scrape_data(Jobnumber.number_list(@result.result_id, @result.area_id))
                     ResultMailer.recommend_email(@result).deliver
                     render json: { status: 'SUCCESS', data: @result.recommend }
                 else

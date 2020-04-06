@@ -20,7 +20,12 @@ class Result
         base_url = "https://www.717450.net"
         list.each do |num|
             page_link = "#{base_url}/search/detail/#{num}.html"
-            page = agent.get(page_link)
+            begin
+                page = agent.get(page_link)
+            rescue => exception
+                ErrorMailer.alert_email(num).deliver
+                next
+            end
             title = page.at("h1.heading01").inner_text
             content = page.at("p.boxTitle").inner_text
             points = page.at("div.boxInner").search("li")
