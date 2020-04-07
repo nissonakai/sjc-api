@@ -1,9 +1,9 @@
 module Api
     module V1
         class JobnumbersController < ApplicationController
-            def show_area
-                jobnumbers = Jobnumber.where(area_id: params[:area_id])
-                render json: { status: "SUCCESS", message: "Loaded questions", data: jobnumbers }
+            def index
+                jobnumbers = Jobnumber.all
+                render json: { status: "SUCCESS", message: "Loaded jobnumbers", data: jobnumbers }
             end
 
             def update

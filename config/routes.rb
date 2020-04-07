@@ -8,11 +8,7 @@ Rails.application.routes.draw do
           put 'selected', to: 'surveys#update_selected'    
         end
       end
-      resources :jobnumbers, only: [:update] do
-        collection do
-          post '/area', to: 'jobnumber#show_area'
-        end
-      end
+      resources :jobnumbers, only: [:index, :update]
       post '/results', to: 'results#send_mail'
     end
   end
