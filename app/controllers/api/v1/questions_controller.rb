@@ -1,6 +1,7 @@
 module Api
     module V1
         class QuestionsController < ApplicationController
+            include Secured
             before_action :set_question, only: [:update, :destroy]
 
             def index

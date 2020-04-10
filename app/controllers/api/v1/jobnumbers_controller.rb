@@ -1,6 +1,7 @@
 module Api
     module V1
         class JobnumbersController < ApplicationController
+            include Secured
             def index
                 jobnumbers = Jobnumber.all
                 render json: { status: "SUCCESS", message: "Loaded jobnumbers", data: jobnumbers }

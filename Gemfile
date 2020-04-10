@@ -11,6 +11,7 @@ gem 'rack-cors'
 gem 'mechanize'
 gem 'rails_same_site_cookie'
 gem 'active_hash'
+gem 'jwt'
 
 group :development, :test do
   gem 'pry-rails'
