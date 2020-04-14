@@ -26,7 +26,6 @@ module Secured
 
     def http_token
       if request.headers['Authorization'].present?
-        binding.pry
         request.headers['Authorization'].split(' ').last
       end
     end
