@@ -8,6 +8,7 @@ module Api
                     @result.scrape_data(Jobnumber.number_list(@result.result_id, @result.area_id))
                     if @result.email
                         ResultMailer.recommend_email(@result).deliver
+                    end
                     render json: { status: 'SUCCESS', data: @result.recommend }
                 else
                     render json: { status: "ERROR" }
