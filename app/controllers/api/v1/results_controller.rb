@@ -3,10 +3,11 @@ module Api
         class ResultsController < ApplicationController
             def send_mail
                 @result = Result.new(result_params)
-                if @result.email
+                if @result.age && @result.sex && @result.prefecture_id
                     ResultMailer.result_email(@result).deliver
                     @result.scrape_data(Jobnumber.number_list(@result.result_id, @result.area_id))
-                    ResultMailer.recommend_email(@result).deliver
+                    if @result.email
+                        ResultMailer.recommend_email(@result).deliver
                     render json: { status: 'SUCCESS', data: @result.recommend }
                 else
                     render json: { status: "ERROR" }
