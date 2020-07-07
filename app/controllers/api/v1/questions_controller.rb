@@ -2,11 +2,11 @@ module Api
     module V1
         class QuestionsController < ApplicationController
             include Secured
-            before_action :set_question, only: [:update, :destroy]
 
             def index
-                questions = Question.all
-                render json: { status: "SUCCESS", message: "Loaded questions", data: questions }
+                questions = Question.all.includes(:personality)
+                personalities = questions.map {|question| question.personality }
+                render json: { status: "SUCCESS", message: "Loaded questions", data: questions, personalities: personalities }
             end
 
             def show
@@ -24,26 +24,24 @@ module Api
             end
 
             def destroy
-                @question.destroy
-                render json: { status: 'SUCCESS', message: 'Deleted the post', data: @question }
+                question = Question.find(params[:id])
+                question.destroy
+                render json: { status: 'SUCCESS', message: 'Deleted the post', data: question }
             end
 
             def update
-                if @question.update(question_params)
-                  render json: { status: 'SUCCESS', message: 'Updated the post', data: @question }
+                question = Question.find(params[:id])
+                if question.update(question_params)
+                  render json: { status: 'SUCCESS', message: 'Updated the post', data: question }
                 else
-                  render json: { status: 'ERROR', message: 'Not updated', data: @question.errors }
+                  render json: { status: 'ERROR', message: 'Not updated', data: question.errors }
                 end
             end
         
             private
-      
-            def set_question
-              @question = Question.find(params[:id])
-            end
-      
+            
             def question_params
-              params.require(:question).permit(:title, :category, :survey_id)
+              params.require(:question).permit(:title, :category, :survey_id, personality_attributes: [:type1, :type2, :type3, :type4, :type5, :type6])
             end
         end
     end
