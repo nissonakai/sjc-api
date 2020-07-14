@@ -1,12 +1,11 @@
 module Api
     module V1
-        class QuestionsController < ApplicationController
+        class QuestionsController < ApiController
             include Secured
 
             def index
-                questions = Question.all.includes(:personality)
-                personalities = questions.map {|question| question.personality }
-                render json: { status: "SUCCESS", message: "Loaded questions", data: questions, personalities: personalities }
+                questions = Question.all
+                render json: { status: "SUCCESS", message: "Loaded questions", data: questions }
             end
 
             def show
@@ -40,8 +39,8 @@ module Api
         
             private
             
-            def question_params
-              params.require(:question).permit(:title, :category, :survey_id, personality_attributes: [:type1, :type2, :type3, :type4, :type5, :type6])
+            def question_params  
+              params.require(:question).permit(:title, :category, :survey_id)
             end
         end
     end

@@ -1,6 +1,6 @@
 module Api
   module V1
-    class SurveysController < ApplicationController
+    class SurveysController < ApiController
       include Secured
       before_action :set_survey, only: [:show, :update_selected, :destroy]
 
