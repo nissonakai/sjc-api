@@ -1,6 +1,6 @@
 module Api
     module V1
-        class ResultsController < ApiController
+        class ResultsController < ApplicationController
             def send_mail
                 @result = Result.new(result_params)
                 if @result.age && @result.sex && @result.prefecture_id

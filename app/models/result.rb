@@ -26,21 +26,14 @@ class Result
                 ErrorMailer.alert_email(num).deliver
                 next
             end
-            title = page.at("h1.heading01").inner_text
-            content = page.at("p.boxTitle").inner_text
+            data = {}
+            data[:title] = page.at("h1.heading01").inner_text
+            data[:content] = page.at("p.boxTitle").inner_text
             points = page.at("div.boxInner").search("li")
-            point1 = points[0].inner_text
-            point2 = points[1].inner_text
+            data[:points] = [points[0].inner_text, points[1].inner_text]
             image_base = page.at("ul.outLineSubSlider").search("img")[0]["src"]
-            image_path = image_base.include?(base_url) ? image_base : base_url + image_base
-            data = {
-                page_link: page_link,
-                title: title,
-                content: content,
-                points: [point1, point2],
-                image_path: image_path,
-                wage: []
-            }
+            data[:image_path] = image_base.include?(base_url) ? image_base : base_url + image_base
+            data[:wage] = []
             target_classes = ["wage", "location", "shift", "holiday"]
             treatment = page.at('div.jobTreatment')
             target_classes.each do |class_name|
@@ -55,8 +48,7 @@ class Result
                 end
             end
             target_data.push(data)
-            end
-            @recommend = target_data
         end
-
+        @recommend = target_data
+    end
 end

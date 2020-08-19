@@ -1,6 +1,6 @@
 module Api
     module V1
-        class JobnumbersController < ApiController
+        class JobnumbersController < ApplicationController
             include Secured
             def index
                 jobnumbers = Jobnumber.all

@@ -1,6 +1,6 @@
 module Api
     module V1
-        class QuestionsController < ApiController
+        class QuestionsController < ApplicationController
             include Secured
 
             def index

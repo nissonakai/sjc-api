@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_14_020933) do
+ActiveRecord::Schema.define(version: 2020_07_21_081734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2020_07_14_020933) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "survey_id"
-    t.integer "category"
+    t.integer "category", null: false
     t.string "type"
     t.integer "count1"
     t.integer "count2"

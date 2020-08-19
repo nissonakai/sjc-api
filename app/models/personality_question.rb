@@ -1,4 +1,5 @@
 class PersonalityQuestion < Question
+    after_initialize :set_default_category
     with_options numericality: { only_integer: true, less_than_or_equal_to: 3 }, presence: true do
         validates :count1
         validates :count2
@@ -10,7 +11,11 @@ class PersonalityQuestion < Question
     with_options presence: true do
         validates :choice1
         validates :choice2
-        validates :choice3
-        validates :choice4
-    end 
+    end
+
+    private
+
+    def set_default_category
+        self.category ||= 5
+    end
 end
