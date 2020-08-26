@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_21_081734) do
+ActiveRecord::Schema.define(version: 2020_08_24_093548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,22 +24,18 @@ ActiveRecord::Schema.define(version: 2020_07_21_081734) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.string "title", limit: 25, null: false
+    t.string "title", limit: 50, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "survey_id"
     t.integer "category", null: false
     t.string "type"
-    t.integer "count1"
-    t.integer "count2"
-    t.integer "count3"
-    t.integer "count4"
-    t.integer "count5"
-    t.integer "count6"
     t.string "choice1", default: "test1", null: false
     t.string "choice2", default: "test2", null: false
     t.string "choice3"
     t.string "choice4"
+    t.string "countA", limit: 6, default: "000000", null: false
+    t.string "countB", limit: 6, default: "000000", null: false
     t.index ["survey_id"], name: "index_questions_on_survey_id"
   end
 
