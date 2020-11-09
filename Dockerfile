@@ -11,7 +11,6 @@ RUN apk update && \
     shadow \
     sudo \
     busybox-suid \
-    mariadb-connector-c-dev \
     tzdata \
     alpine-sdk \
     postgresql-client \
