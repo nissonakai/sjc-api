@@ -15,7 +15,7 @@ class PersonalityQuestion < Question
 
     def less_than_limit_count
         def check(count)
-            count.split("").all? {|c| 0 <= c.to_i <= 3 }
+            count.split("").all? {|c| 0 <= c.to_i && c.to_i <= 3 }
         end
         if !check(countA)
             errors.add(:countA, "には4点以上の配点が含まれています")
