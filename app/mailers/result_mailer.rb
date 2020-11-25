@@ -3,7 +3,7 @@ class ResultMailer < ApplicationMailer
 
     def result_email(result)
         @result = result
-        mail(to: "baw.keepon69@gmail.com", subject: '工場求人ナビ')
+        mail(to: "nlabo@kk-navi.com", subject: 'プチ自分発見診断 CVしました。')
     end
 
     def recommend_email(result)
