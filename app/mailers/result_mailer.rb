@@ -1,5 +1,5 @@
 class ResultMailer < ApplicationMailer
-    default from: '"工場求人ナビ プチ自分発見診断" <noreply@717450.com>'
+    default from: '"工場求人ナビ プチ自分発見診断" <nlabo@kk-navi.com>'
 
     def result_email(result)
         @result = result
