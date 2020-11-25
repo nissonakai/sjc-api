@@ -1,18 +1,6 @@
 class Result
     include ActiveModel::Model
-    attr_accessor :email, :age, :job, :wage, :sex, :prefecture_id, :dormitory, :answers, :result_id, :result_title, :recommend
-
-    def area_id
-        return dormitory ? 0 : Prefecture.find(prefecture_id).area_id
-    end
-
-    def area_name
-        return Area.find(area_id).name 
-    end
-
-    def area_url
-        return "https://www.717450.net/search/result?category=#{Area.find(area_id).param}&disp_type=1"
-    end
+    attr_accessor :email, :age, :sex, :area, :status, :distance, :importance, :valuesResult, :personalityResult
 
     def scrape_data(list)
         target_data = []

@@ -29,6 +29,7 @@ Rails.application.routes.draw do
           put 'selected', to: 'surveys#update_selected'    
         end
       end
+      post '/results', to: 'results#send_mail'
     end
   end
 end

@@ -1,13 +1,11 @@
 結果
 アドレス <%= @result.email %>
 年齢 <%= @result.age %>
-職業 <%= @result.job != "" ? @result.job : "回答なし" %>
-年収 <%= @result.wage != "" ? @result.wage : "回答なし" %>
-性別 <%= @result.sex == "1" ? "男性" : @result.sex == "2" ? "女性" : "答えない" %>
-居住している都道府県 <%= @result.prefecture_id %>
-寮の希望 <%= @result.dormitory ? "寮あり" : "寮なし" %>
+性別 <%= @result.sex %>
+お住いの都道府県 <%= @result.area %>
+就業中 or 離職中 <%= @result.status %>
+許容できる通勤時間 <%= @result.distance %>
+仕事選びで一番重要視している要素 <%= @result.importance %>
 診断テストの結果 
-<% @result.answers.split("/").each do |answer| %>
-<%= answer %>
-<% end %>
-診断タイプ <%= @result.result_title %>
+価値観診断 <%= @result.valuesResult.type %>
+性格診断 <%= @result.personalityResult.type %>
