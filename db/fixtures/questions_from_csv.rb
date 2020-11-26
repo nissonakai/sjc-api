@@ -9,7 +9,7 @@ csv_personality.each do |line|
     s.choice2 = line[2]
     s.countA = line[3]
     s.countB = line[4]
-    s.image_url = "https://www.717450.net/priority/sjc_img/#{line[5]}"
+    s.image_url = line[5]
    end
 end
 
