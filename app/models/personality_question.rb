@@ -3,6 +3,7 @@ class PersonalityQuestion < Question
     with_options presence: true do
         validates :choice1
         validates :choice2
+        validates :image_url
     end
 
     with_options presence: true, length: { is: 6 } do

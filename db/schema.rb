@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_24_093548) do
+ActiveRecord::Schema.define(version: 2020_11_26_015927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_08_24_093548) do
     t.string "choice4"
     t.string "countA", limit: 6, default: "000000", null: false
     t.string "countB", limit: 6, default: "000000", null: false
+    t.string "image_url"
     t.index ["survey_id"], name: "index_questions_on_survey_id"
   end
 
