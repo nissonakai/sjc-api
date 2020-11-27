@@ -2,12 +2,35 @@
     <td class="content-wrapper" style="padding-left:24px;padding-right:24px">
         <br>
         <div class="title-copy" style="font-family:Helvetica, Arial, sans-serif;font-size:10px;line-height:17px;text-align:left;color:#333333;margin-bottom:10px;">
-            本メールは送信専用のアドレスです。配信停止はメール下部のリンクよりお願い致します。</div>
+            本メールは送信専用のアドレスです。</div>
         <div class="title" style="font-family:Helvetica, Arial, sans-serif;font-size:18px;font-weight:600;color:#374550;padding-bottom:10px;">
             <%= @result.email %>様の適職診断テスト結果</div>
         <div class="title-copy" style="font-family:Helvetica, Arial, sans-serif;font-size:12px;line-height:17px;text-align:left;color:#333333">
-            あなたは
-            タイプです！<br>
-            タイプにおすすめのお仕事はこちら！</div>
+            <tr>
+                <td class="subtitle" style="font-family:Helvetica, Arial, sans-serif;font-size:16px;line-height:22px;font-weight:600;color:#2469A0;padding-bottom:6px">
+                    価値観診断テスト結果
+                </td>
+            </tr>
+            <tr>
+            <td>
+                あなたは<span style="font-size: 15px;"><%= @result.valuesResult %>タイプです！</span><br>
+                あなたの長所は…<br>
+                <span style="font-size: 15px;"><%= @result.valuesImportance %></span><br>
+                <%= @result.valuesDesc %><br>
+            </td>
+            </tr>
+            <tr>
+                <td class="subtitle" style="font-family:Helvetica, Arial, sans-serif;font-size:16px;line-height:22px;font-weight:600;color:#2469A0;padding-bottom:6px">
+                    性格診断テスト結果
+                </td>
+                
+            </tr>
+            <tr>
+                <td>
+                    あなたは<span style="font-size: 15px;"><%= @result.personalityResult %>タイプです！</span><br>
+                    <%= @result.personalityDesc %>
+                </td>
+            </tr>
+        </div>
     </td>
 </tr>

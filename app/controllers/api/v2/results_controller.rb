@@ -11,7 +11,7 @@ module Api
             end
 
             def result_params
-                params[:result].permit(:age, :email, :sex, :area, :status, :distance, :importance, :valuesResult, :valuesDesc, :valuesImportant, :personalityResult, :personalityDesc)
+                params[:result].permit(:age, :email, :sex, :area, :status, :distance, :importance, :valuesResult, :valuesDesc, :valuesImportance, :personalityResult, :personalityDesc)
             end
 
         end
