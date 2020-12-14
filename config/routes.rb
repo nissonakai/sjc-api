@@ -30,6 +30,7 @@ Rails.application.routes.draw do
         end
       end
       post '/results', to: 'results#send_mail'
+      post '/callback', to: 'linebot#callback'
     end
   end
 end

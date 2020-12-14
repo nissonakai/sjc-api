@@ -27,7 +27,7 @@ module App
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins "https://www.717450.net"
+        origins "https://www.717450.net", "http://localhost:3000"
         resource "*",
           headers: :any,
           expose: ['access-token', 'uid', 'Authorization'],

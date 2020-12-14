@@ -13,6 +13,7 @@ gem 'rails_same_site_cookie'
 gem 'active_hash'
 gem 'jwt'
 gem 'seed-fu', '~> 2.3'
+gem 'line-bot-api'
 
 
 group :development, :test do
