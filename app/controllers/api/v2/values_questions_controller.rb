@@ -16,7 +16,7 @@ module Api
 
             def show
                 questions = ValuesQuestion.where(survey_id: params[:id])
-                render json: { status: "SUCCESS", message: "Loaded questions", data: questions }
+                render json: { status: "SUCCESS", message: "Loaded question", data: questions }
             end
 
             def create
