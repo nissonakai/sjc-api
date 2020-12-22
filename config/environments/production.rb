@@ -53,17 +53,17 @@ Rails.application.configure do
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "app_#{Rails.env}"
-  config.action_mailer.default_url_options = { host:
-    'https://suitable-job-check-api.herokuapp.com/'
-  }
-  config.action_mailer.smtp_settings = {
-    user_name: ENV['SENDGRID_USERNAME'],
-    password: ENV['SENDGRID_PASSWORD'],
-    domain: 'herokuapp.com',
-    address: 'smtp.sendgrid.net',
-    port: 587,
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.deliver_method = :smtp
+  host = 'https://suitable-job-check-api.herokuapp.com/'
+  config.action_mailer.default_url_options = { host: host }
+  ActionMailer::Base.smtp_settings = {
+    port: ENV['MAILGUN_SMTP_PORT'],
+    address: ENV['MAILGUN_SMTP_SERVER'],
+    user_name: ENV['MAILGUN_SMTP_LOGIN'],
+    password: ENV['MAILGUN_SMTP_PASSWORD'],
+    domain: host,
     authentication: :plain,
-    enable_starttls_auto: true
   }
   config.action_mailer.perform_caching = false
 
