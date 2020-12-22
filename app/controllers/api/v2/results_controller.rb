@@ -3,10 +3,6 @@ module Api
         class ResultsController < ApplicationController
             def send_mail
                 @result = Result.new(result_params)
-                ResultMailer.result_email(@result).deliver
-                if @result.email != ""
-                    ResultMailer.recommend_email(@result).deliver
-                end
                 render json: { status: 'SUCCESS', data: @result }
             end
 
