@@ -12,6 +12,7 @@ RUN apk update && \
     apk --update --no-cache add \
     postgresql-client \
     tzdata \
+    curl \
     nodejs && \
     apk --update --no-cache --virtual=build-dependencies add \
     shadow \

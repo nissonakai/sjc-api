@@ -7,6 +7,8 @@ module Api
                 if @result.email != ""
                     ResultMailer.recommend_email(@result).deliver
                 end
+                puts "SENDGRID_USERNAME: #{ENV['SENDGRID_USERNAME']}"
+                puts "SENDGRID_PASSWORD: #{ENV['SENDGRID_PASSWORD']}"
                 render json: { status: 'SUCCESS', data: @result }
             end
 
